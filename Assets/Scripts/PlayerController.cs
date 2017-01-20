@@ -44,13 +44,13 @@ public class PlayerController : MonoBehaviour {
 		//pRigidbody.velocity = new Vector2(moveVelocity, pRigidbody.velocity.y);
 
 		if(Input.GetKeyDown(KeyCode.UpArrow)) {
-			if(playerIsTouchingGrounding()) {
+			if(playerIsGrounded()) {
 				pRigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
 			}
 		}
 	}
 
-	private bool playerIsTouchingGrounding() {
+	private bool playerIsGrounded() {	
 		return Physics2D.Raycast(transform.position, -transform.up, distToGround + 0.1f);
 	}
 
